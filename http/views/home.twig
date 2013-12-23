@@ -4,16 +4,25 @@
     <title></title>
 </head>
 <body>
-
+<a href="#" onclick="emit('id1', 'hello')">emit('id1', 'hello')</a>
 <script src="//localhost:8080/socket.io/socket.io.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.1/zepto.min.js"></script>
 <script>
     var socket = io.connect('//localhost:8080');
+
     socket.on('connect', function () {
        console.log('connected!')
     });
+
     socket.on('id1', function (data) {
         console.log(data);
     });
+
+    function emit(id, message) {
+        $.get('/emit/' + id +  '/' + message, function(res) {
+            console.log("message emited!")
+        });
+    }
 </script>
 </body>
 </html>
