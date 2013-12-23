@@ -4,24 +4,21 @@
     <title></title>
 </head>
 <body>
-<a href="#" onclick="emit('id1', 'hello')">emit('id1', 'hello')</a>
+<ul>
+    <li><a href="#" onclick="emit('id1', 'hello')">emit('id1', 'hello')</a></li>
+    <li><a href="#" onclick="emit('id1', 'bye')">emit('id1', 'bye')</a></li>
+</ul>
 <script src="//localhost:8080/socket.io/socket.io.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.1.1/zepto.min.js"></script>
 <script>
     var socket = io.connect('//localhost:8080');
 
-    socket.on('connect', function () {
-       console.log('connected!')
-    });
-
     socket.on('id1', function (data) {
-        console.log(data);
+        console.log("mensage from websocket: " + data);
     });
 
     function emit(id, message) {
-        $.get('/emit/' + id +  '/' + message, function(res) {
-            console.log("message emited!")
-        });
+        $.get('/emit/' + id +  '/' + message);
     }
 </script>
 </body>
