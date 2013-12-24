@@ -32,4 +32,4 @@ Start php server
 php -S 0.0.0.0:8888 -t http/www
 ```
 
-[http://www.youtube.com/watch?v=vJWmnp3UXZI]
+![:youtube 600x400](vJWmnp3UXZI)
